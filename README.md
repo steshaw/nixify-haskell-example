@@ -1,0 +1,1 @@
+# nixify-haskell-example

@@ -1,0 +1,48 @@
+name:                nixify-haskell-example
+version:             0.1.0.0
+github:              "steshaw/nixify-haskell-example"
+license:             BSD3
+author:              "Steven Shaw"
+maintainer:          "steven@steshaw.org"
+copyright:           "(c) 2019, Steven Shaw"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Example
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/steshaw/nixify-haskell-example#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+
+executables:
+  nixify-haskell-example-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - nixify-haskell-example
+
+tests:
+  nixify-haskell-example-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - nixify-haskell-example
