@@ -1,5 +1,5 @@
 *~
-/.config/stack/stack.yaml.lock
+/.local/etc/stack/stack.yaml.lock
 /.direnv/
 .stack-work/
 /nixify-haskell-example.cabal
