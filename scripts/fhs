@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+fhs="${NIX_ETC_DIR}/fhs.nix"
+
+function run {
+  nix-shell --pure --argstr run "$*" "${fhs}"
+}
+
+if [[ $# -eq 0 ]]; then
+  run zsh
+else
+  run "$@"
+fi

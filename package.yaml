@@ -1,7 +1,7 @@
 name:                nixify-haskell-example
 version:             0.1.0.0
 github:              "steshaw/nixify-haskell-example"
-license:             BSD3
+license:             MIT
 author:              "Steven Shaw"
 maintainer:          "steven@steshaw.org"
 copyright:           "(c) 2019, Steven Shaw"
@@ -21,6 +21,9 @@ description:         Please see the README on GitHub at <https://github.com/stes
 
 dependencies:
 - base >= 4.7 && < 5
+- rio
+- postgresql-simple
+- zlib
 
 library:
   source-dirs: src

@@ -1,6 +1,8 @@
 let
+  #
   # Look here for information about how to generate `nixpkgs-version.json`.
   #  → https://nixos.wiki/wiki/FAQ/Pinning_Nixpkgs
+  #
   pinnedVersion = builtins.fromJSON (builtins.readFile ./.nixpkgs-version.json);
   pinnedPkgs = import (builtins.fetchGit {
     inherit (pinnedVersion) url rev;
@@ -8,15 +10,9 @@ let
     ref = "nixos-unstable";
   }) {};
 in
-
-# This allows overriding pkgs by passing `--arg pkgs ...`
 { pkgs ? pinnedPkgs }:
-
-with pkgs;
-
-mkShell {
+with pkgs; mkShell {
   buildInputs = [
-    # put packages here.
     direnv
     emacs
     haskell.compiler.ghc865
@@ -24,9 +20,16 @@ mkShell {
     haskellPackages.hindent
     haskellPackages.hlint
     haskellPackages.hoogle
+    openssl
     pkgconfig
+    postgresql_11
     shellcheck
     stack
     vim
+    zlib
   ];
+
+  shellHook = ''
+    source .local/etc/environment
+  '';
 }
