@@ -1,7 +1,8 @@
 let
   #
-  # Look here for information about how to generate `nixpkgs-version.json`.
-  #  → https://nixos.wiki/wiki/FAQ/Pinning_Nixpkgs
+  # See
+  #  https://nixos.wiki/wiki/FAQ/Pinning_Nixpkgs.
+  #  https://vaibhavsagar.com/blog/2018/05/27/quick-easy-nixpkgs-pinning/
   #
   pinnedVersion = builtins.fromJSON (builtins.readFile ./.nixpkgs-version.json);
   pinnedPkgs = import (builtins.fetchGit {
@@ -9,8 +10,7 @@ let
 
     ref = "nixos-unstable";
   }) {};
-in
-{ pkgs ? pinnedPkgs }:
+in { pkgs ? pinnedPkgs }:
 with pkgs; mkShell {
   buildInputs = [
     direnv
