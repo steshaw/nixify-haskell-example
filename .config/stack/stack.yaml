@@ -1,0 +1,9 @@
+resolver: lts-13.30
+
+packages:
+- ../..
+
+system-ghc: true
+
+nix:
+  enable: false

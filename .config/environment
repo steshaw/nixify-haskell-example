@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+PATH=$PWD/scripts:$PATH
+
+export ETC_DIR=${PWD}/.config
+export NIX_ETC_DIR=${ETC_DIR}/nix
+
+export STACK_YAML=$ETC_DIR/stack/stack.yaml
+export STACK_ROOT=$PWD/.local/run/stack
+
+export PGHOST=localhost
+export PGUSER=postgres
+export PGPASSWORD=password

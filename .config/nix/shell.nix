@@ -30,6 +30,6 @@ with pkgs; mkShell {
   ];
 
   shellHook = ''
-    source .local/etc/environment
+    source .config/environment
   '';
 }
